@@ -41,6 +41,13 @@
             @Html.DisplayFor(modelItem => item.ThumbNail)
         </td>
         <td>
+            <form action="~/Home/RecipeFavorite">
+                <input name="title" value="@item.Title" class="hide" />
+                <input name="image" value="@item.Image" class="hide" />
+                <input name="ingredients" value="@item.Ingredients" class="hide" />
+                <input name="thumbNail" value="@item.Ingredients" class="hide" />
+                <input type="submit" value="&#10084" class="favoriteButton" />
+            </form>
             <a href="~/Home/RecipeFavorite">&#10084;</a>
 
         </td>
