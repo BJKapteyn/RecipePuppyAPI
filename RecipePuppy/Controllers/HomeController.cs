@@ -21,10 +21,22 @@ namespace RecipePuppy.Controllers
 
             return View(Recipes);
         }
-
-        public ActionResult Ingredients()
+        public ActionResult Ingredients() 
         {
-            return View();
+          return View();
+        }
+        public ActionResult RecipeFavorite(string title, string image, string ingredients, string thumbNail)
+        {
+            User u = (User)Session["User"];
+            Favorite fav = new Favorite();
+            fav.Title = title;
+            fav.Image = image;
+            fav.Ingredients = ingredients;
+            fav.Thumbnail = thumbNail;
+            fav.FavUserID = u.UserID;
+            fav.User = u;
+            db.Favorites.Add(fav);
+            return RedirectToAction("RecipeList");
         }
 
         public ActionResult Register(string UserName, string Password, string Name, string Email)
