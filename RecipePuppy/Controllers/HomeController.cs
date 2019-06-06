@@ -9,6 +9,7 @@ namespace RecipePuppy.Controllers
 {
     public class HomeController : Controller
     {
+        RecipeDBEntities db = new RecipeDBEntities();
         public ActionResult Index()
         {
             return View();
@@ -21,9 +22,16 @@ namespace RecipePuppy.Controllers
             return View(Recipes);
         }
 
-        public ActionResult RecipeFavorite()
+        [HttpPost]
+        public ActionResult RecipeFavorite(Recipe r)
         {
-            return View();
+            //User user = (User)Session["User"];
+            Favorite f = new Favorite(r);
+
+            db.Favorites.Add(f);
+            db.SaveChanges();
+
+            return RedirectToAction("RecipeList");
         }
     }
 }
