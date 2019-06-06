@@ -26,24 +26,43 @@ namespace RecipePuppy.Controllers
         public ActionResult RecipeFavorite(Recipe r)
         {
             //User user = (User)Session["User"];
-            Favorite f = new Favorite(r);
+           // Favorite f = new Favorite(r);
 
-            db.Favorites.Add(f);
-            db.SaveChanges();
+            //db.Favorites.Add(f);
+            //db.SaveChanges();
 
             return RedirectToAction("RecipeList");
         }
 
-        public ActionResult Register(string UserName, string Password, string Name, string Email)
+        public ActionResult Register()
         {
-            ViewBag.UserName = UserName;
-            ViewBag.Password = Password;
-            ViewBag.Name = Name;
-            ViewBag.Email = Email;
-
-            Session["User"] = User;
-
-                return View();
+            return View();
         }
+        [HttpPost]
+        public ActionResult RegisterNewUser(User u)
+        {
+            db.Users.Add(u);
+            db.SaveChanges();
+
+            return View("Login");
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(User u)
+        {
+           
+            User user = db.Users.Where(login => login.UserName == u.UserName && login.Password == u.Password).ToList().First();
+
+            Session["User"] = (User)user;
+
+            return View("RecipeList");
+        }
+
+
     }
 }
