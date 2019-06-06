@@ -26,5 +26,17 @@ namespace RecipePuppy.Controllers
         {
             return View();
         }
+
+        public ActionResult Register(string UserName, string Password, string Name, string Email)
+        {
+            ViewBag.UserName = UserName;
+            ViewBag.Password = Password;
+            ViewBag.Name = Name;
+            ViewBag.Email = Email;
+
+            Session["User"] = User;
+
+                return View();
+        }
     }
 }
