@@ -20,5 +20,10 @@ namespace RecipePuppy.Controllers
 
             return View(Recipes);
         }
+
+        public ActionResult RecipeFavorite()
+        {
+            return View();
+        }
     }
 }
