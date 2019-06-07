@@ -4,7 +4,7 @@
     ViewBag.Title = "RecipeList";
 }
 
-<h2>RecipeList</h2>
+<h2>Recipes</h2>
 
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
         <td>
             <form action="~/Home/RecipeFavorite">
                 <input name="title" value="@item.Title" class="hiddenElement" />
-                <input name="image" value="@item.ThumbNail" class="hiddenElement" />
+                <input name="image" value="@item.Image" class="hiddenElement" />
                 <input name="ingredients" value="@item.Ingredients" class="hiddenElement" />
-                <input name="thumbNail" value="@item.Ingredients" class="hiddenElement" />
+                <input name="thumbNail" value="@item.ThumbNail" class="hiddenElement" />
                 <input type="submit" class="favoriteButton" value="Favorite &#10084" />
             </form>
 
