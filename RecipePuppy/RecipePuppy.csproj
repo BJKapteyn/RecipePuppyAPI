@@ -254,6 +254,7 @@
     <Content Include="Views\Home\FavoriteList.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Ingredients.cshtml" />
+    <Content Include="Views\Home\DeleteFav.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
