@@ -11,7 +11,7 @@ namespace RecipePuppy.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Favorite
     {
         public int Id { get; set; }
@@ -20,6 +20,7 @@ namespace RecipePuppy.Models
         public string Ingredients { get; set; }
         public string Thumbnail { get; set; }
         public int FavUserID { get; set; }
+    
         public virtual User User { get; set; }
     }
 }
