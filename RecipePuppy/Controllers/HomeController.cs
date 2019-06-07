@@ -21,6 +21,12 @@ namespace RecipePuppy.Controllers
 
             return View(Recipes);
         }
+        public ActionResult RecipeListTitle(string title)
+        {
+            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipeTitle(title);
+
+            return View("RecipeList",Recipes);
+        }
         public ActionResult Ingredients() 
         {
 

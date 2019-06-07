@@ -25,7 +25,7 @@ namespace RecipePuppy.Models
 
         public static List<Recipe> GetNewRecipe(string ing1, string ing2/*, int num*/)
         {
-            string URL = $"http://www.recipepuppy.com/api/?i={ing1},{ing2}&p=6";
+            string URL = $"http://www.recipepuppy.com/api/?i={ing1},{ing2}";
 
             string APIText = APICall(URL);
 
@@ -36,6 +36,26 @@ namespace RecipePuppy.Models
             List<Recipe> Recipes = new List<Recipe>();
 
             foreach(JToken j in jsonRecipes)
+            {
+                Recipe r = new Recipe(j);
+                Recipes.Add(r);
+            }
+
+            return Recipes;
+        }
+        public static List<Recipe> GetNewRecipeTitle(string title)
+        {
+            string URL = $"http://www.recipepuppy.com/api/?q={title}";
+
+            string APIText = APICall(URL);
+
+            JToken json = JToken.Parse(APIText);
+
+            List<JToken> jsonRecipes = json["results"].ToList();
+
+            List<Recipe> Recipes = new List<Recipe>();
+
+            foreach (JToken j in jsonRecipes)
             {
                 Recipe r = new Recipe(j);
                 Recipes.Add(r);
