@@ -20,7 +20,8 @@ namespace RecipePuppy.Controllers
         public ActionResult RecipeList(string ing1, string ing2, int num)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2);
-            string stringNum = num.ToString();
+            
+            Session["Number"] = num;
             if(removed)
             {
                 removed = false;
