@@ -37,6 +37,7 @@ namespace RecipePuppy.Controllers
             fav.FavUserID = u.UserID;
             fav.User = u;
             db.Favorites.Add(fav);
+            db.SaveChanges();
             return RedirectToAction("RecipeList");
         }
 
