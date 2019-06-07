@@ -23,9 +23,9 @@ namespace RecipePuppy.Models
             return APIText;
         }
 
-        public static List<Recipe> GetNewRecipe(string ing1, string ing2, int num)
+        public static List<Recipe> GetNewRecipe(string ing1, string ing2/*, int num*/)
         {
-            string URL = $"http://www.recipepuppy.com/api/?i={ing1},{ing2}&p={num}";
+            string URL = $"http://www.recipepuppy.com/api/?i={ing1},{ing2}&p=6";
 
             string APIText = APICall(URL);
 
