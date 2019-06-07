@@ -6,9 +6,6 @@
 
 <h2>RecipeList</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -40,15 +37,18 @@
         <td>
             @Html.DisplayFor(modelItem => item.ThumbNail)
         </td>
-            <td>
-                <form action="~/Home/RecipeFavorite" method="post">
-                    <input type="hidden" name="Title" value="@item.Title" />
-                    <input type="hidden" name="Image" value="@item.Image" />
-                    <input type="hidden" name="Ingredients" value="@item.Ingredients" />
-                    <input type="hidden" name="ThumbNail" value="@item.ThumbNail" />
-                    <button type="submit">Favorite</button>
-                </form>
-            </td>
+        <td>
+            <form action="~/Home/RecipeFavorite">
+                <input name="title" value="@item.Title" class="hide" />
+                <input name="image" value="@item.Image" class="hide" />
+                <input name="ingredients" value="@item.Ingredients" class="hide" />
+                <input name="thumbNail" value="@item.Ingredients" class="hide" />
+                <input type="submit" value="&#10084" class="favoriteButton" />
+            </form>
+            <a href="~/Home/RecipeFavorite">&#10084;</a>
+
+        </td>
+
     </tr>
 }
 
