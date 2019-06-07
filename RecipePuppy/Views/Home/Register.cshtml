@@ -1,7 +1,7 @@
 ﻿<body>
 
     <form action="~/Home/RegisterNewUser" method="post">
-          oninput='passwordConfirm.setCustomValidity(passwordConfirm.value != Password.value ? "Passwords do not match." : "")'>
+          <oninput='passwordConfirm.setCustomValidity(passwordConfirm.value != Password.value ? "Passwords do not match." : "")'>
         <div class="form-group">
             <label for="Name">Name</label><br />
             <input type="text" name="Name"
