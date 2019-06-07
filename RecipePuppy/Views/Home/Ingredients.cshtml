@@ -1,16 +1,19 @@
 ﻿<br />
 <h2>Search by Ingredients:</h2>
-
+<p></p>
 <form action="~/Home/RecipeList">
     <br />
-    <p>
-        First Ingredient: <input name="ing1" type="text" /><br />
-        <br />
-        Second Ingredient: <input name="ing2" type="text" /><br />
-        <br />
-        Number of Recipes: <input name="num" type="number" />
-    </p><br />
+    <p>First Ingredient: </p><input name="ing1" type="text" /><br />
+    <br />
+    <p>Second Ingredient: </p><input name="ing2" type="text" /><br />
+    <br />
+    <p>Number of Recipes: </p><br />
+    <input name="num" value="5" type="radio" />5
+    <input name="num" value="10" type="radio" />10
+    <input name="num" value="15" type="radio" />15
+
     <input type="submit" value="Get Recipes" />
+
 </form>
 
 <br />

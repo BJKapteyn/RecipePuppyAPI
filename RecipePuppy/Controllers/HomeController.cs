@@ -10,14 +10,25 @@ namespace RecipePuppy.Controllers
     public class HomeController : Controller
     {
         RecipeDBEntities db = new RecipeDBEntities();
+        public bool removed = false;
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult RecipeList(string ing1, string ing2/*, int num*/)
+        public ActionResult RecipeList(string ing1, string ing2, int num)
         {
-            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2/*, num*/);
+            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2);
+            string stringNum = num.ToString();
+            if(removed)
+            {
+                removed = false;
+            }
+            else
+            {
+                Session["Success"] = "";
+            }
 
             return View(Recipes);
         }
@@ -115,6 +126,15 @@ namespace RecipePuppy.Controllers
             return View("Ingredients");
         }
 
+        public ActionResult DeleteFav(int id) 
+        {
+            Favorite fav = db.Favorites.Find(id);
+            db.Favorites.Remove(fav);
+            Session["Success"] = "Successfully removed favorite.";
+            removed = true;
+            db.SaveChanges();
+            return RedirectToAction("FavoriteList");
+        }
 
     }
 }

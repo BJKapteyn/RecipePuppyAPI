@@ -1,1 +1,7 @@
-﻿
+﻿.hiddenElement {
+    display: none;
+}
+.recipeImage {
+    width: 100px;
+    height: auto;
+}

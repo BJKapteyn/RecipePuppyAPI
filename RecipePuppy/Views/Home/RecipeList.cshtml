@@ -17,9 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Ingredients)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ThumbNail)
-        </th>
+
         <th></th>
     </tr>
 
@@ -29,23 +27,19 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            <img src="@item.ThumbNail" class="recipeImage" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Ingredients)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ThumbNail)
-        </td>
-        <td>
             <form action="~/Home/RecipeFavorite">
-                <input name="title" value="@item.Title" class="hidden" />
-                <input name="image" value="@item.Image" class="hidden" />
-                <input name="ingredients" value="@item.Ingredients" class="hidden" />
-                <input name="thumbNail" value="@item.Ingredients" class="hidden" />
-                <input type="submit" class="favoriteButton" />
+                <input name="title" value="@item.Title" class="hiddenElement" />
+                <input name="image" value="@item.ThumbNail" class="hiddenElement" />
+                <input name="ingredients" value="@item.Ingredients" class="hiddenElement" />
+                <input name="thumbNail" value="@item.Ingredients" class="hiddenElement" />
+                <input type="submit" class="favoriteButton" value="Favorite &#10084" />
             </form>
-            <a href="~/Home/RecipeFavorite">&#10084;</a>
 
         </td>
 
