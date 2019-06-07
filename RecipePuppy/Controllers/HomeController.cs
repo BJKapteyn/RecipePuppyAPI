@@ -17,9 +17,10 @@ namespace RecipePuppy.Controllers
             return View();
         }
 
-        public ActionResult RecipeList(string ing1, string ing2/*, int num*/)
+        public ActionResult RecipeList(string ing1, string ing2, int num)
         {
-            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2/*, num*/);
+            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2);
+            string stringNum = num.ToString();
             if(removed)
             {
                 removed = false;

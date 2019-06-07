@@ -17,7 +17,7 @@
                     @Html.DisplayNameFor(model => model.Ingredients)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Thumbnail)
+                    @Html.DisplayNameFor(model => model.User.UserName)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.User.UserName)
@@ -32,7 +32,7 @@
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    <img src="@item.Thumbnail" class="recipeImage"/>
+                    <img src="@item.Image" class="recipeImage"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Ingredients)
