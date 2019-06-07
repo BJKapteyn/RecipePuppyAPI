@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<RecipePuppy.Models.Recipe>
+@using RecipePuppy.Models
+@{ 
+    List<Recipe> recipes = Model.ToList();
 
-@{
-    ViewBag.Title = "RecipeList";
+    int num = (int)Session["Number"];
+
+    if(num > recipes.Count)
+    {
+        num = recipes.Count;
+    }
 }
 
 <h2>RecipeList</h2>
@@ -20,30 +27,33 @@
 
         <th></th>
     </tr>
+    @for(int i = 0; i < num; i++)
+    {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            <img src="@item.ThumbNail" class="recipeImage" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ingredients)
-        </td>
-        <td>
-            <form action="~/Home/RecipeFavorite">
-                <input name="title" value="@item.Title" class="hiddenElement" />
-                <input name="image" value="@item.ThumbNail" class="hiddenElement" />
-                <input name="ingredients" value="@item.Ingredients" class="hiddenElement" />
-                <input name="thumbNail" value="@item.Ingredients" class="hiddenElement" />
-                <input type="submit" class="favoriteButton" value="Favorite &#10084" />
-            </form>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => recipes[i].Title)
+            </td>
+            <td>
+                <img src="@recipes[i].ThumbNail" class="recipeImage" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipes[i].Ingredients)
+            </td>
+            <td>
+                <form action="~/Home/RecipeFavorite">
+                    <input name="title" value="@recipes[i].Title" class="hiddenElement" />
+                    <input name="image" value="@recipes[i].ThumbNail" class="hiddenElement" />
+                    <input name="ingredients" value="@recipes[i].Ingredients" class="hiddenElement" />
+                    <input name="thumbNail" value="@recipes[i].Ingredients" class="hiddenElement" />
+                    <input type="submit" class="favoriteButton" value="Favorite &#10084" />
+                </form>
 
-        </td>
+            </td>
 
-    </tr>
-}
+        </tr>
+    }
+@*@foreach (var item in Model) {
+}*@
 
 </table>
