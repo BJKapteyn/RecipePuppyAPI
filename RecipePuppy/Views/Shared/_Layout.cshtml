@@ -16,10 +16,13 @@
             </button>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    
-                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Recipe", "Recipe", "Home", null, new { @class = "nav-link" })</li>
-                    
+
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Ingredients", "Ingredients", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Recipe", "RecipeList", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Register", "Register", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Login", "Login", "Home", null, new { @class = "nav-link" })</li>
+
                 </ul>
             </div>
         </div>
