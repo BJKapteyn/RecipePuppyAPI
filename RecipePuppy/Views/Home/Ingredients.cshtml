@@ -1,30 +1,69 @@
-﻿<br />
-<h2>Search by Ingredients:</h2>
-<p></p>
-<form action="~/Home/RecipeList">
-    <br />
-    <p>First Ingredient: </p><input name="ing1" type="text" /><br />
-    <br />
-    <p>Second Ingredient: </p><input name="ing2" type="text" /><br />
-    <br />
-    <p>Number of Recipes: </p><br />
-    <input name="num" value="1" type="radio" />1
-    <input name="num" value="5" type="radio" />5
-    <input name="num" value="10" type="radio" />10
+﻿<div class="container-fluid">
+    <!-- Control the column width, and how they should appear on different devices -->
+    <div class="row">
+        <div class="col-sm-6">
+            <br />
+            <h2>Search by Ingredients:</h2>
 
-    <input type="submit" value="Get Recipes" />
+            <form action="~/Home/RecipeList">
+                <br />
+                <div class="form-group">
+                    <input type="text" name="ing1"
+                           class="form-control" placeholder="First ingredient:" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ing2"
+                           class="form-control" placeholder="Second ingredient:" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ing3"
+                           class="form-control" placeholder="Third ingredient:" />
+                </div>
 
-</form>
+                <input type="submit" value="List Recipes" />
+            </form>
 
-<br />
-<h2>Search by Recipe Title:</h2>
+        </div>
+        <div class="col-sm-6">
+            <br />
+            <h2>Search by Name of Dish:</h2>
 
-<form action="~/Home/RecipeListTitle">
-    <br />
-    <p>
-        Title: <input name="title" type="text" />
-    </p>
-    <br />
-    <br />
-    <input type="submit" value="Get Recipe" />
-</form>
+            <form action="~/Home/RecipeListTitle">
+                <br />
+                <div class="form-group">
+                    <input type="text" name="title"
+                           class="form-control" placeholder="Dish Name:" />
+                </div>
+
+                <br />
+                <input type="submit" value="List Recipes" />
+            </form>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12" justify-content-center">
+            <br />
+            <br />
+            <h3>Select the # of Recipes to display: </h3>
+            <p>
+                <label>
+                    <input name="num" value="1" type="radio" checked />
+                    <span>1 Recipe</span>
+                </label>
+                <label>
+                    <input name="num" value="5" type="radio" checked />
+                    <span>5 Recipes</span>
+                </label>
+                <label>
+                    <input name="num" value="10" type="radio" checked />
+                    <span>10 Recipes</span>
+                </label>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
