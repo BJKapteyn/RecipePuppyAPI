@@ -10,19 +10,22 @@
         num = recipes.Count;
     }
 }
-
-<h2>Recipes</h2>
+<br />
+<h2>Recipes </h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            <p>Name</p>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th>
+            <p>Link to Instructions:</p>
         </th>
 
         <th></th>
@@ -31,30 +34,31 @@
     @for(int i = 0; i < num; i++)
     {
 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => recipes[i].Title)
-            </td>
-            <td>
-                <img src="@recipes[i].ThumbNail" class="recipeImage" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => recipes[i].Ingredients)
-            </td>
-            <td>
-                <form action="~/Home/RecipeFavorite">
-                    <input name="title" value="@recipes[i].Title" class="hiddenElement" />
-                    <input name="image" value="@recipes[i].ThumbNail" class="hiddenElement" />
-                    <input name="ingredients" value="@recipes[i].Ingredients" class="hiddenElement" />
-                    <input name="thumbNail" value="@recipes[i].Ingredients" class="hiddenElement" />
-                    <input type="submit" class="favoriteButton" value="Favorite &#10084" />
-                </form>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => recipes[i].Title)
+        </td>
+        <td>
+            <img src="@recipes[i].ThumbNail" class="recipeImage" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => recipes[i].Ingredients)
+        </td>
+        <td>
+            <a href="@recipes[i].Image">@Html.DisplayFor(modelItem => recipes[i].Image)</a>
+        </td>
+        <td>
+            <form action="~/Home/RecipeFavorite">
+                <input name="title" value="@recipes[i].Title" class="hiddenElement" />
+                <input name="image" value="@recipes[i].Image" class="hiddenElement" />
+                <input name="ingredients" value="@recipes[i].Ingredients" class="hiddenElement" />
+                <input name="thumbNail" value="@recipes[i].ThumbNail" class="hiddenElement" />
+                <input type="submit" class="favoriteButton" value="Favorite &#10084" />
+            </form>
 
-            </td>
+        </td>
 
-        </tr>
+    </tr>
     }
-@*@foreach (var item in Model) {
-}*@
 
 </table>
