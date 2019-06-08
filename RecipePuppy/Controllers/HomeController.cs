@@ -17,9 +17,9 @@ namespace RecipePuppy.Controllers
             return View();
         }
 
-        public ActionResult RecipeList(string ing1, string ing2, int num)
+        public ActionResult RecipeList(string ing1, string ing2, string ing3, int num)
         {
-            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2);
+            List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2, ing3);
             
             Session["Number"] = num;
             if(removed)
