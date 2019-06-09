@@ -130,6 +130,13 @@ namespace RecipePuppy.Controllers
             db.SaveChanges();
             return RedirectToAction("FavoriteList");
         }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            return RedirectToAction("Index");
+        }
 
     }
 }
