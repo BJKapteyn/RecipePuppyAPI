@@ -13,7 +13,7 @@
 
 <h2>Recipes</h2>
 
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -26,9 +26,37 @@
         </th>
 
         <th></th>
-    </tr>
+    </tr>*@
+    <div class="flexContainer">
+        @for(int i = 0; i < num; i++)
+        {
+            
+        string box = "box" + i.ToString();
 
-    @for(int i = 0; i < num; i++)
+        <div id="@box">
+            <div class="flex title">
+                @Html.DisplayFor(modelItem => recipes[i].Title)
+            </div>
+            <div class="flex image">
+                <img src="@recipes[i].ThumbNail" class="recipeImage" />
+            </div>
+            <div class="flex ingredients">
+                @Html.DisplayFor(modelItem => recipes[i].Ingredients)
+            </div>
+            <div class="flex favorite">
+                <form action="~/Home/RecipeFavorite">
+                    <input name="title" value="@recipes[i].Title" class="hiddenElement" />
+                    <input name="image" value="@recipes[i].ThumbNail" class="hiddenElement" />
+                    <input name="ingredients" value="@recipes[i].Ingredients" class="hiddenElement" />
+                    <input name="thumbNail" value="@recipes[i].Ingredients" class="hiddenElement" />
+                    <input type="submit" class="favoriteButton" value="Favorite &#10084" />
+                </form>
+            </div>
+
+        </div>
+        }
+    </div>
+    @*@for (int i = 0; i < num; i++)
     {
 
         <tr>
@@ -53,8 +81,8 @@
             </td>
 
         </tr>
-    }
-@*@foreach (var item in Model) {
-}*@
+    }*@
+    @*@foreach (var item in Model) {
+        }*@
 
 </table>

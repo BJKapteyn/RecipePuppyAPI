@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<RecipePuppy.Models.Favorite>
+@using RecipePuppy.Models
 @{ 
-
+    List<Favorite> favorites = Model.ToList();
     if (Model.ToList().Count > 0)
     {
         <h2>FavoriteList</h2>
         @Session["Success"]
-        <table class="table">
+        @*<table class="table">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Title)
@@ -23,36 +24,63 @@
                     @Html.DisplayNameFor(model => model.User.UserName)
                 </th>
                 <th></th>
-            </tr>
-
-        @foreach (var item in Model)
+            </tr>*@
+    <div class="flexContainer">
+        @for (int i = 0; i < favorites.Count; i++)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    <img src="@item.Thumbnail" class="recipeImage"/>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ingredients)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.UserName)
-                </td>
-                <td>
-                    <form action="~/Home/DeleteFav">
-                        <input name="id" value="@item.Id" class="hiddenElement" />
-                        <input type="submit" value="Delete Favorite" />
+            string box = "box" + i.ToString();
+            <div id="@box">
+                <div class="flex title">
+                    @Html.DisplayFor(modelItem => favorites[i].Title)
+                </div>
+                <div class="flex image">
+                    <img src="@favorites[i].Thumbnail" class="recipeImage" />
+                </div>
+                <div class="flex ingredients">
+                    @Html.DisplayFor(modelItem => favorites[i].Ingredients)
+                </div>
+                <div class="flex favorite">
+                    <form action="~/Home/RecipeFavorite">
+                        <input name="title" value="@favorites" class="hiddenElement" />
+                        <input name="image" value="@favorites" class="hiddenElement" />
+                        <input name="ingredients" value="@favorites" class="hiddenElement" />
+                        <input name="thumbNail" value="@favorites[i].Ingredients" class="hiddenElement" />
+                        <input type="submit" class="favoriteButton" value="Favorite &#10084" />
                     </form>
-                </td>
-            </tr>
-        }
+                </div>
+
+            </div>
+                }
+    </div>
+            @*@foreach (var item in Model)
+    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        <img src="@item.Thumbnail" class="recipeImage" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ingredients)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserName)
+                    </td>
+                    <td>
+                        <form action="~/Home/DeleteFav">
+                            <input name="id" value="@item.Id" class="hiddenElement" />
+                            <input type="submit" value="Delete Favorite" />
+                        </form>
+                    </td>
+                </tr>
+            }
 
         </table>
+    }*@
     }
     else
     {
-        <h1>No favorites yet!</h1>
+        < h1 > No favorites yet!</ h1 >
     }
 }
