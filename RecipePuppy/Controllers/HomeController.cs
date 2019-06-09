@@ -22,14 +22,7 @@ namespace RecipePuppy.Controllers
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2);
             
             Session["Number"] = num;
-            if(removed)
-            {
-                removed = false;
-            }
-            else
-            {
-                Session["Success"] = "";
-            }
+
 
             return View(Recipes);
         }
@@ -49,12 +42,16 @@ namespace RecipePuppy.Controllers
             User u = (User)Session["User"];
             User favU = db.Users.Where(login => login.UserID == u.UserID).ToList().First();
             Favorite fav = new Favorite();
-            //favU.Email = u.Email;
-            //favU.Favorites = u.Favorites;
-            //favU.Password = u.Password;
-            //favU.UserName = u.UserName;
-            //favU.UserID = u.UserID;
-            //favU.Name = u.Name;
+
+            if (removed)
+            {
+                removed = false;
+            }
+            else
+            {
+                Session["Success"] = "";
+            }
+
             fav.Title = title;
             fav.Image = image;
             fav.Ingredients = ingredients;

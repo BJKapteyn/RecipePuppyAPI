@@ -5,7 +5,7 @@
     if (Model.ToList().Count > 0)
     {
         <h2>FavoriteList</h2>
-        @Session["Success"]
+        <p class="sucess">@Session["Success"]</p>
         @*<table class="table">
             <tr>
                 <th>
@@ -29,23 +29,20 @@
         @for (int i = 0; i < favorites.Count; i++)
         {
             string box = "box" + i.ToString();
-            <div id="@box">
+            <div class="box" id="@box">
                 <div class="flex title">
                     @Html.DisplayFor(modelItem => favorites[i].Title)
                 </div>
                 <div class="flex image">
-                    <img src="@favorites[i].Thumbnail" class="recipeImage" />
+                    <img src="@favorites[i].Image" class="recipeImage" />
                 </div>
                 <div class="flex ingredients">
                     @Html.DisplayFor(modelItem => favorites[i].Ingredients)
                 </div>
                 <div class="flex favorite">
-                    <form action="~/Home/RecipeFavorite">
-                        <input name="title" value="@favorites" class="hiddenElement" />
-                        <input name="image" value="@favorites" class="hiddenElement" />
-                        <input name="ingredients" value="@favorites" class="hiddenElement" />
-                        <input name="thumbNail" value="@favorites[i].Ingredients" class="hiddenElement" />
-                        <input type="submit" class="favoriteButton" value="Favorite &#10084" />
+                    <form action="~/Home/DeleteFav">
+                        <input name="id" value="@favorites[i].Id" class="hiddenElement" />
+                        <input type="submit" class="flexButton del" value="Delete" />
                     </form>
                 </div>
 
