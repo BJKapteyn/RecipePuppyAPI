@@ -30,11 +30,10 @@
             string box = "box" + i.ToString();
             <div class="box" id="@box">
                 <div class="flex image">
-                    <img src="@favorites[i].Image" class="recipeImage" />
+                    <img src="@favorites[i].Thumbnail" class="recipeImage" />
                 </div>
                 <div class="flex title">
-                    @favorites[i].Thumbnail
-                    <a href=""></a>@Html.DisplayFor(modelItem => favorites[i].Title)
+                    <a href="@favorites[i].Image"><h3>@Html.DisplayFor(modelItem => favorites[i].Title)</h3></a>
                 </div>
                 <div class="flex ingredients">
                     @Html.DisplayFor(modelItem => favorites[i].Ingredients)
