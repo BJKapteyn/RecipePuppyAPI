@@ -1,3 +1,6 @@
+@{
+    User u = (User)Session["User"];
+}
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -137,13 +140,22 @@
 
     </div>
     <!-- Grid row -->
-
     <h2>Let's get started!</h2>
+    @{
+        if (u == null)
+        {
 
-    <p>Become our friends at Recipe App! To be able to search and save, please login or register below.</p>
-    <a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-s mb-2">Login</a>
-    <a href="@Url.Action("Register", "Home")" class="btn btn-success btn-s mb-2">Register</a>
 
+            <p>Become our friends at Recipe App! To be able to search and save, please login or register below.</p>
+            <a href="@Url.Action("Login", "Home")" class="btn btn-primary btn-s mb-2">Login</a>
+            <a href="@Url.Action("Register", "Home")" class="btn btn-success btn-s mb-2">Register</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Ingredients", "Home")" class="btn btn-primary btn-s mb-2">Find Recipes!</a>
+        }
+
+    }
 </body>
 
 </html>

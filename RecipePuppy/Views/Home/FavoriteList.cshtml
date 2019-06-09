@@ -29,11 +29,12 @@
         {
             string box = "box" + i.ToString();
             <div class="box" id="@box">
-                <div class="flex title">
-                    @Html.DisplayFor(modelItem => favorites[i].Title)
-                </div>
                 <div class="flex image">
                     <img src="@favorites[i].Image" class="recipeImage" />
+                </div>
+                <div class="flex title">
+                    @favorites[i].Thumbnail
+                    <a href=""></a>@Html.DisplayFor(modelItem => favorites[i].Title)
                 </div>
                 <div class="flex ingredients">
                     @Html.DisplayFor(modelItem => favorites[i].Ingredients)
