@@ -9,7 +9,7 @@
         @*<table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Title)
+                    <p>Name</p>
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Image)
@@ -21,7 +21,6 @@
                     @Html.DisplayNameFor(model => model.User.UserName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.User.UserName)
                 </th>
                 <th></th>
             </tr>*@
@@ -78,6 +77,8 @@
     }
     else
     {
-        < h1 > No favorites yet!</ h1 >
+        <br />
+        <h1>You don't have any favorites yet!</h1> 
+        <a href="~/Views/Home/Ingredients.cshtml">Add Favorite Recipes</a>
     }
 }

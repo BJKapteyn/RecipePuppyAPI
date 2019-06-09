@@ -10,19 +10,22 @@
         num = recipes.Count;
     }
 }
-
-<h2>Recipes</h2>
+<br />
+<h2>Recipes </h2>
 
 @*<table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            <p>Name</p>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Ingredients)
+        </th>
+        <th>
+            <p>Link to Instructions:</p>
         </th>
 
         <th></th>
@@ -59,7 +62,6 @@
     </div>
     @*@for (int i = 0; i < num; i++)
     {
-
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => recipes[i].Title)
@@ -86,4 +88,4 @@
     @*@foreach (var item in Model) {
         }*@
 
-</table>
+
