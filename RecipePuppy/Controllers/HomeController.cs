@@ -105,23 +105,20 @@ namespace RecipePuppy.Controllers
                         Session["UserError"] = "";
                         user = users[i];
                         Session["User"] = user;
-                    }
-                    else
-                    {
-                        Session["UserError"] = "Incorrect username or password";
-                        return RedirectToAction("~/Home/Login");
+                        return View("Ingredients");
                     }
                 }
                 else
                 {
-                    Session["UserError"] = "Incorrect username or password";
-                    return RedirectToAction("Login");
+                    continue;
                 }
             }
+            Session["UserError"] = "Incorrect username or password";
+            return RedirectToAction("Login");
             //User user = db.Users.Where(login => login.UserName == u.UserName && login.Password == u.Password).ToList().First();
             //Session["User"] = (User)user;
 
-            return View("Ingredients");
+            
         }
 
         public ActionResult DeleteFav(int id) 

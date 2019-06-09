@@ -71,6 +71,12 @@
     color: green;
 }
 
+#user {
+    margin-top: 6px;
+    margin-left: 100px;
+    color: white;
+}
+
 
 /*-------------------divs within flexbox-----------------*/
 .image {
