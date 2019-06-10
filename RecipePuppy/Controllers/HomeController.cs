@@ -115,10 +115,6 @@ namespace RecipePuppy.Controllers
             }
             Session["UserError"] = "Incorrect username or password";
             return RedirectToAction("Login");
-            //User user = db.Users.Where(login => login.UserName == u.UserName && login.Password == u.Password).ToList().First();
-            //Session["User"] = (User)user;
-
-            
         }
 
         public ActionResult DeleteFav(int id) 
