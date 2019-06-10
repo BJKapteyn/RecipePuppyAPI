@@ -17,12 +17,14 @@ namespace RecipePuppy.Controllers
             return View();
         }
 
+
         public ActionResult RecipeList(string title)
         {
             return View();
         }
 
         [HttpPost]
+
         public ActionResult RecipeList(string ing1, string ing2, string ing3, int num)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2, ing3);
@@ -131,6 +133,13 @@ namespace RecipePuppy.Controllers
             removed = true;
             db.SaveChanges();
             return RedirectToAction("FavoriteList");
+        }
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            return RedirectToAction("Index");
         }
 
     }
