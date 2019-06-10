@@ -16,16 +16,24 @@ namespace RecipePuppy.Controllers
         {
             return View();
         }
-        
+
+
+        public ActionResult RecipeList(string title)
+        {
+            return View();
+        }
+
+        [HttpPost]
+
         public ActionResult RecipeList(string ing1, string ing2, string ing3, int num)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2, ing3);
-            
-            Session["Number"] = num;
 
+            Session["Number"] = num;
 
             return View(Recipes);
         }
+
         public ActionResult RecipeListTitle(string title)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipeTitle(title);
@@ -115,10 +123,6 @@ namespace RecipePuppy.Controllers
             }
             Session["UserError"] = "Incorrect username or password";
             return RedirectToAction("Login");
-            //User user = db.Users.Where(login => login.UserName == u.UserName && login.Password == u.Password).ToList().First();
-            //Session["User"] = (User)user;
-
-            
         }
 
         public ActionResult DeleteFav(int id) 
