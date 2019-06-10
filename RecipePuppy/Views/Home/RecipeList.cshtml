@@ -3,33 +3,20 @@
 @{ 
     List<Recipe> recipes = Model.ToList();
 
-    int num = (int)Session["Number"];
-
-    if(num > recipes.Count)
+    int num = 10;
+    if(Session["Number"] != null)
     {
-        num = recipes.Count;
+        num = (int)Session["Number"];
+        if(num > recipes.Count)
+        {
+            num = recipes.Count;
+        }
     }
+
 }
 <br />
 <h2>Recipes </h2>
 
-@*<table class="table">
-    <tr>
-        <th>
-            <p>Name</p>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </th>
-        <th>
-            <p>Link to Instructions:</p>
-        </th>
-
-        <th></th>
-    </tr>*@
     <div class="flexContainer">
         @for(int i = 0; i < num; i++)
         {

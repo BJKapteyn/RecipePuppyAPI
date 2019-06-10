@@ -17,15 +17,21 @@ namespace RecipePuppy.Controllers
             return View();
         }
 
+        public ActionResult RecipeList(string title)
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult RecipeList(string ing1, string ing2, string ing3, int num)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipe(ing1, ing2, ing3);
-            
-            Session["Number"] = num;
 
+            Session["Number"] = num;
 
             return View(Recipes);
         }
+
         public ActionResult RecipeListTitle(string title)
         {
             List<Recipe> Recipes = RecipeAPIDAL.GetNewRecipeTitle(title);
